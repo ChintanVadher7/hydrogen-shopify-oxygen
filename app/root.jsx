@@ -1,4 +1,4 @@
-import {useNonce} from '@shopify/hydrogen';
+// import {useNonce} from '@shopify/hydrogen';
 import {defer, json} from '@shopify/remix-oxygen';
 import {
   Links,
@@ -114,7 +114,7 @@ export async function loader({context}) {
 }
 
 export default function App() {
-  const nonce = useNonce();
+  const nonce = null;
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
   const {headerItems} = useLoaderData();
@@ -141,7 +141,7 @@ export default function App() {
 export function ErrorBoundary() {
   const error = useRouteError();
   const rootData = useRootLoaderData();
-  const nonce = useNonce();
+  const nonce = null;
   let errorMessage = 'Unknown error';
   let errorStatus = 500;
 
