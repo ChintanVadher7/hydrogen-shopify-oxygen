@@ -29,21 +29,20 @@ export function Header({ header, isLoggedIn, cart, headerItems }) {
         setisScroll(false)
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
-    // Cleanup function to remove event listener on component unmount
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
- 
+
+
   const openCart = () => {
     window.location.href = `${window.location.href}#cart-aside`;
   }
 
   return (
-    <header className="header flex bg-transparent z-[2]" style={{ backgroundColor: bgColor }}>
-      <div className="container-fluid w-full py-[30px]">
+    <header className="header  flex bg-transparent z-[2]" style={{ backgroundColor: bgColor }}>
+      <div className="container-fluid w-full py-[30px] md:block hidden">
         <div className="header-bottom flex flex-wrap justify-between xl:items-stretch xlscreen:items-center w-full relative py-30">
           <div className="cat-btn flex-wrap gap-[30px] hidden smscreen2:flex">
             <Link to={'/'} className="btn-search ">
@@ -54,17 +53,17 @@ export function Header({ header, isLoggedIn, cart, headerItems }) {
             <div className="mobile-menu-main smscreen2:hidden">
               <ul className="flex flex-wrap items-center my-0 gap-10 lgscreen:gap-7 xl:h-full ">
                 <li>
-                  <Link style={ isScroll ? { color:'black'} : {color:"white"}} to={'/'}>
+                  <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
                     Shop aura
                   </Link>
                 </li>
                 <li>
-                  <Link style={ isScroll ? { color:'black'} : {color:"white"}} to={'/'}>
+                  <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link style={ isScroll ? { color:'black'} : {color:"white"}} to={'/'}>
+                  <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
                     Our Blog
                   </Link>
                 </li>
@@ -73,21 +72,71 @@ export function Header({ header, isLoggedIn, cart, headerItems }) {
           </div>
           <div className="logo xl:flex xl:justify-center lgscreen:max-w-[90px]">
             <Link to={'/'}>
-              <img style={ isScroll ? { filter: 'invert(1)' } : {filter:'revert'}} src={headerLogo} width="80" height="33" alt="logo" />
+              <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={headerLogo} width="80" height="33" alt="logo" />
             </Link>
           </div>
           <div className="cat-btn flex flex-wrap gap-[40px] smscreen2:gap-[20px] ml-30">
             <Link onClick={openCart} to={'/#cart-aside'} className="btn-search smscreen2:hidden">
-              <img style={isScroll ? { filter: 'invert(1)' } : {filter:'revert'}} src={searchIcon} height="16" width="16" alt="search" />
+              <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={searchIcon} height="16" width="16" alt="search" />
             </Link>
             <Link to={'/'} className="calnder">
-              <img style={isScroll ? { filter: 'invert(1)' } : {filter:'revert'}} src={calenderIcon} height="16" width="16" alt="search" />
+              <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={calenderIcon} height="16" width="16" alt="search" />
             </Link>
             <Link to={'/'} className="people-icon">
-              <img style={isScroll ? { filter: 'invert(1)' } : {filter:'revert'}} src={peopleIcon} height="16" width="16" alt="search" />
+              <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={peopleIcon} height="16" width="16" alt="search" />
             </Link>
           </div>
         </div>
+      </div>
+      <div className='md:hidden block'>
+        mobile
+        <div className='moobile-cotainer bg-[rgb(243, 237, 231)]'>
+          <div className="header-bottom flex flex-wrap flex-col justify-center items-center gap-[50px] py-[35px] justify-between xl:items-stretch xlscreen:items-center w-full relative py-30">
+            <div className="cat-btn flex-wrap gap-[30px] hidden smscreen2:flex">
+              <Link to={'/'} className="btn-search ">
+                <img src={searchIcon} height="16" width="16" alt="search" />
+              </Link>
+            </div>
+            <div className="navbar order-3">
+              <div className="mobile-menu-main smscreen2:hidden">
+                <ul className="flex flex-wrap items-center my-0 gap-10 lgscreen:gap-7 xl:h-full ">
+                  <li>
+                    <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
+                      Shop aura
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={isScroll ? { color: 'black' } : { color: "white" }} to={'/'}>
+                      Our Blog
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="logo xl:flex xl:justify-center lgscreen:max-w-[90px] order-1">
+              <Link to={'/'}>
+                <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={headerLogo} width="80" height="33" alt="logo" />
+              </Link>
+            </div>
+            <div className="cat-btn flex flex-wrap gap-[40px] smscreen2:gap-[20px] ml-30 order-2">
+              <Link onClick={openCart} to={'/#cart-aside'} className="btn-search smscreen2:hidden">
+                <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={searchIcon} height="16" width="16" alt="search" />
+              </Link>
+              <Link to={'/'} className="calnder">
+                <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={calenderIcon} height="16" width="16" alt="search" />
+              </Link>
+              <Link to={'/'} className="people-icon">
+                <img style={isScroll ? { filter: 'invert(1)' } : { filter: 'revert' }} src={peopleIcon} height="16" width="16" alt="search" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
       </div>
     </header>
   );

@@ -15,18 +15,31 @@ const BlogCard = ({ content }) => {
                 <div className=" blog-swiper pb-55">
                     <div className="aria-live=" style={{ transitionDuration: '0ms', transitionDelay: "0ms", transform: 'translate3d(0px, 0px, 0px)' }}>
                         <Swiper
+                            spaceBetween={20}
                             slidesPerView={1}
-                            spaceBetween={10}
+                            centeredSlides={true}
                             breakpoints={{
+                                560: {
+                                    slidesPerView: 1.4,
+                                    spaceBetween:90,
+                                    centeredSlides:true
+                                },
+                                720: {
+                                    slidesPerView: 2.1,
+                                    spaceBetween:90,
+                                    centeredSlides:false
+                                },
                                 768: {
-                                  slidesPerView: 2,
-                                  spaceBetween: 40,
+                                    slidesPerView: 2.1,
+                                    spaceBetween:30,
+                                    centeredSlides:false
                                 },
-                                1024: {
-                                  slidesPerView: 3,
-                                  spaceBetween: 50,
-                                },
-                              }}
+                                1024:{
+                                    slidesPerView: 3,
+                                    spaceBetween:30,
+                                    centeredSlides:false
+                                }
+                            }}
                             className='h-full'>
                             {
                                 content.cardRefrenceCollection.items.map((res, index) => (
